@@ -1527,6 +1527,11 @@ components:
                 All external information sources not otherwise defined in the EIDO. 
               items:
                 $ref: '#/components/schemas/ExternalInformationSourceType'
+            alternateValuesComponent:
+              type: array
+              description: All conflicting values not chosen by the IDX coalescing algorithm are listed here.
+              items:
+                $ref: '#/components/schemas/AlternateValuesType'                
             '@context':
               type: object
               description: JSON-LD context
