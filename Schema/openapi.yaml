@@ -96,10 +96,19 @@ components:
         That data component has conflicting values from the constituents.
       type: object
       required:
+        - $id
+        - lastUpdateTimeStamp
         - DataComponentReference
         - Element
         - Alternate
       properties:
+        $id:
+          type: string
+          description: Globally unique identifier of the data component
+        lastUpdateTimeStamp:
+          type: string
+          description: Timestamp of the last time the data component was modified
+          format: date-time
         DataComponentReference:
           description: Reference to the data component this alternate value applies to.
           $ref: '#/components/schemas/ReferenceType'
