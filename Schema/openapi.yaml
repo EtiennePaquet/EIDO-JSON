@@ -96,36 +96,45 @@ components:
         That data component has conflicting values from the constituents.
       type: object
       required:
-        - DataComponentReference
-        - Element
-        - Alternate
+        - $id
+        - lastUpdateTimeStamp
+        - dataComponentReference
+        - element
+        - alternate
       properties:
-        DataComponentReference:
+        $id:
+          type: string
+          description: Globally unique identifier of the data component
+        lastUpdateTimeStamp:
+          type: string
+          description: Timestamp of the last time the data component was modified
+          format: date-time
+        dataComponentReference:
           description: Reference to the data component this alternate value applies to.
           $ref: '#/components/schemas/ReferenceType'
-        Element:
+        element:
           type: string
           description:
             Name of Element in the referenced component.
-        Alternate:
-          description: Alternate value for the element.
+        alternate:
+          description: Alternate values for the element.
           type: array
           items:
             description: Alternate Type
             type: object
             required:
-              - Constituent
-              - TimeStamp
-              - Value
+              - constituent
+              - timeStamp
+              - otherValue
             properties:
-              Constituent:
+              constituent:
                 type: string
                 description: Agency/Service/FE Id of constituent
-              Timestamp:
+              timeStamp:
                 type: string
                 format: date-time
                 description: TimeStamp of Data Component 
-              values:
+              otherValue:
                 type: string
                 description: 
                   Value for this element sent by constituent
@@ -1527,6 +1536,11 @@ components:
                 All external information sources not otherwise defined in the EIDO. 
               items:
                 $ref: '#/components/schemas/ExternalInformationSourceType'
+            alternateValuesComponent:
+              type: array
+              description: All conflicting values not chosen by the IDX coalescing algorithm are listed here.
+              items:
+                $ref: '#/components/schemas/AlternateValuesType'                
             '@context':
               type: object
               description: JSON-LD context
