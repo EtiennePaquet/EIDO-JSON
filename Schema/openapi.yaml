@@ -130,7 +130,7 @@ components:
               constituent:
                 type: string
                 description: Agency/Service/FE Id of constituent
-              timestamp:
+              timeStamp:
                 type: string
                 format: date-time
                 description: TimeStamp of Data Component 
