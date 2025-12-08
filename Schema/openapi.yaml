@@ -67,7 +67,7 @@ components:
           description:
             A globally unique identifier of the agent or automaton that updated
             the data component last
-        alternateValueReferences:
+        alternateValuesReferences:
           type: array
           description: References to alternate values data component. Alternate values for data elements in this data component.
           items:
