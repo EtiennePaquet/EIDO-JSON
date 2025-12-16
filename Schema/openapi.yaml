@@ -72,14 +72,14 @@ components:
           description: References to alternate values data component. Alternate values for data elements in this data component.
           items:
             $ref: '#/components/schemas/ReferenceType'
-        externalInformationSourceReferences:
+        externalInformationSourceReference:
           type: array
           items:
             $ref: '#/components/schemas/ReferenceType'
           description:
             References to External Sources Data Components that are links to external
             information sources not otherwise defined in the EIDO.
-        mediaReferences: 
+        mediaReference: 
           type: array
           items:
             $ref: '#/components/schemas/ReferenceType'
