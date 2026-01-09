@@ -67,7 +67,7 @@ components:
           description:
             A globally unique identifier of the agent or automaton that updated
             the data component last
-        AlternateValueReferences:
+        alternateValuesReferences:
           type: array
           description: References to alternate values data component. Alternate values for data elements in this data component.
           items:
@@ -125,7 +125,6 @@ components:
             required:
               - constituent
               - timeStamp
-              - otherValue
             properties:
               constituent:
                 type: string
@@ -135,10 +134,9 @@ components:
                 format: date-time
                 description: TimeStamp of Data Component 
               otherValue:
-                type: string
+                type: object
                 description: 
                   Value for this element sent by constituent
-                  If the element is complex (array or object), the value is the JSON representation of the element. 
     AgencyType:
       title: Agency Type
       description:
