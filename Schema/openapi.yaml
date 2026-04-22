@@ -85,6 +85,11 @@ components:
             $ref: '#/components/schemas/ReferenceType'
           description:
             References to Media Data Components that link to external media.
+        reportingPersonReference:
+          $ref: '#/components/schemas/ReferenceType'
+          description:
+            Reference to a Person Data Component. The person that provided the information 
+            in the data component e.g. Victim, witness, etc
       description: A common prologue on each data component
     AlternateValuesType:
       title: Alternate Values Type
