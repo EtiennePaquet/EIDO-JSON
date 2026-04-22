@@ -67,11 +67,11 @@ components:
           description:
             A globally unique identifier of the agent or automaton that updated
             the data component last
-        alternateValuesReferences:
+        alternateValuesComponent:
           type: array
-          description: References to alternate values data component. Alternate values for data elements in this data component.
+          description: lternate values data component. Alternate values for data elements in this data component.
           items:
-            $ref: '#/components/schemas/ReferenceType'
+            $ref: '#/components/schemas/AlternateValuesType'
         externalInformationSourceReference:
           type: array
           items:
@@ -96,31 +96,18 @@ components:
         That data component has conflicting values from the constituents.
       type: object
       required:
-        - $id
-        - lastUpdateTimeStamp
-        - dataComponentReference
         - element
-        - alternate
+        - alternative
       properties:
-        $id:
-          type: string
-          description: Globally unique identifier of the data component
-        lastUpdateTimeStamp:
-          type: string
-          description: Timestamp of the last time the data component was modified
-          format: date-time
-        dataComponentReference:
-          description: Reference to the data component this alternate value applies to.
-          $ref: '#/components/schemas/ReferenceType'
         element:
           type: string
           description:
             Name of Element in the referenced component.
-        alternate:
-          description: Alternate values for the element.
+        alternative:
+          description: Alternative values for the element.
           type: array
           items:
-            description: Alternate Type
+            description: Alternative Type
             type: object
             required:
               - constituent
@@ -222,7 +209,7 @@ components:
               type: array
               items:
                 type: string
-              minItems: 1,
+              minItems: 1
               description: Shall only contains values present in the Agent Role registry
             agencyReference:
               $ref: '#/components/schemas/ReferenceType'
@@ -1542,23 +1529,23 @@ components:
             itemComponent:
               type: array
               description:
-            	All item information referenced in this document are listed here. 
+                All item information referenced in this document are listed here. 
               items:
-            	$ref: '#/components/schemas/ItemInformationType'	
+                $ref: '#/components/schemas/ItemInformationType'
             
             organizationComponent:
               type: array
               description:
-            	All organization information referenced in this document are listed here. 
+                All organization information referenced in this document are listed here. 
               items:
-            	$ref: '#/components/schemas/OrganizationInformationType'	
+                $ref: '#/components/schemas/OrganizationInformationType'
             
             unitEmergencyStateComponent:
               type: array
               description:
-            	All unit emergency state information referenced in this document are listed here. 
+                All unit emergency state information referenced in this document are listed here. 
               items:
-            	$ref: '#/components/schemas/UnitEmergencyStateType'                
+                $ref: '#/components/schemas/UnitEmergencyStateType'                
             '@context':
               type: object
               description: JSON-LD context
