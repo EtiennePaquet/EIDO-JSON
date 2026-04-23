@@ -1351,6 +1351,11 @@ components:
                 Agency Id must be the value. If the information is provided by a person 
                 referenced in the EIDO then the person data component Identifier ($id) 
                 must be the value. Otherwise, the value is free form text describing the source. 
+            cautionSourceType:
+              type: string
+              description: 
+                Describe the type of value in the cautionSource Data Element. Possible 
+                values are “AgentId”, “AgencyId”, “PersonId” or “Text”.
             startDate:
               type: string
               description: 
