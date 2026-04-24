@@ -942,6 +942,12 @@ components:
                 Identifies additional telephone numbers and SIP 
                 equivalents that can be used to contact.
               $ref: '#/components/schemas/UpdatedCBNType' 
+            updatedCbnReference:
+              description: 
+                Reference to a Updated Callback Number Data Component. Identifies 
+                additional telephone numbers and SIP equivalents that can be used to 
+                contact the individual who made the call described in this Data Component.
+              $ref: '#/components/schemas/ReferenceType' 
     EmergencyResourceType:
       title: Emergency Resource Type
       description: A data type for a resource (vehicle, person [foot patrol],
