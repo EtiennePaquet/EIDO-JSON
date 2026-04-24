@@ -69,7 +69,7 @@ components:
             the data component last
         alternateValuesComponent:
           type: array
-          description: lternate values data component. Alternate values for data elements in this data component.
+          description: Alternate values data component. Alternate values for data elements in this data component.
           items:
             $ref: '#/components/schemas/AlternateValuesType'
         externalInformationSourceReference:
