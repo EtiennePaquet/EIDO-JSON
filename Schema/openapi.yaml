@@ -36,6 +36,7 @@ components:
   schemas:
     ReferenceType:
       title: Reference
+      type: object
       required:
         - $ref
       properties:
@@ -77,7 +78,7 @@ components:
           items:
             $ref: '#/components/schemas/ReferenceType'
           description:
-            References to External Sources Data Components that are links to external
+            References to External Information Sources Data Components that are links to external
             information sources not otherwise defined in the EIDO.
         mediaReference: 
           type: array
@@ -116,12 +117,15 @@ components:
             type: object
             required:
               - constituent
-              - timeStamp
+              - timestamp
             properties:
               constituent:
                 type: string
                 description: Agency/Service/FE Id of constituent
-              timeStamp:
+              reportedByAgentReference:                
+                $ref: '#/components/schemas/ReferenceType'
+                description: Agent that provided the alternate value
+              timestamp:
                 type: string
                 format: date-time
                 description: TimeStamp of Data Component 
@@ -642,7 +646,7 @@ components:
               items:
                 $ref: '#/components/schemas/ReferenceType'
             jCommercialVehicleComponent:
-              $ref: 'NIEMComponents//j.yaml#/components/schemas/jCommercialVehicleType'
+              $ref: 'NIEMComponents/j.yaml#/components/schemas/jCommercialVehicleType'
             itemReference:
               type: array
               description:
@@ -875,9 +879,16 @@ components:
               description: 
                 Value of the verstat parameter. Required if known.
             sipIdentity:
+              deprecated: true
               type: string
               description: 
                 Content of the SIP identity header. Required if known.
+            sipIdentities:
+              type: array
+              description:
+                Contents of the SIP identity headers. Required if known.
+              items:
+                type: string
             locationReference:
               type: array
               description:
@@ -938,6 +949,7 @@ components:
                 enables agents and responders to possibly reach (call back) the 
                 device that initiated the call.
             updatedCbn:
+              deprecated: true
               description: 
                 Identifies additional telephone numbers and SIP 
                 equivalents that can be used to contact.
@@ -1239,7 +1251,7 @@ components:
                 An Identifier that SHOULD come from the external information source registry. 
                 The registry values are linked to a description in the registry that gives 
                 details about how to access the data. 
-            externalSourceAcessString:
+            externalSourceAccessString:
               type: string
               description: 
                 A string value that can be used to query the data source. For example, a URL 
@@ -1415,9 +1427,7 @@ components:
           properties:
             eidoVersion:
               type: string
-              description: Version of the EIDO structure.
-              enum:
-                - '1.0'
+              description: Version of the EIDO structure.              
             eidoExtensionId:
               type: array
               description: 
@@ -1539,11 +1549,6 @@ components:
                 All external information sources not otherwise defined in the EIDO. 
               items:
                 $ref: '#/components/schemas/ExternalInformationSourceType'
-            alternateValuesComponent:
-              type: array
-              description: All conflicting values not chosen by the IDX coalescing algorithm are listed here.
-              items:
-                $ref: '#/components/schemas/AlternateValuesType'
             itemComponent:
               type: array
               description:
