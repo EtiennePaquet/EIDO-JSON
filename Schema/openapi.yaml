@@ -641,6 +641,11 @@ components:
               type: string
               description: 
                 Content of the SIP identity header. Required if known.
+            sipIdentities:
+              type: array
+              description: Content of the SIP identity headers. Required if known.
+              items:
+                type: string
             agentReference:
               type: array
               description: Linked elements type is AgentType
