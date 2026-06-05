@@ -7,7 +7,7 @@ info:
   contact:
     name: NENA
     email: commleadership@nena.org
-  version: '1.0.0'
+  version: '1.0.1'
 servers:
   - url: 'http://localhost/'
   - url: 'https://localhost/'
