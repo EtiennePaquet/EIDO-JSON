@@ -878,17 +878,20 @@ components:
               deprecated: true
               type: string
               description: 
-                Value of the verstat parameter. Required if known.
+                Value of the verstat parameter. Required if known. Will be removed in a future revision, 
+                being replaced by verstat Data Element in the Callback Data Component.
             sipIdentity:
               deprecated: true
               type: string
               description: 
-                Content of the SIP identity header. Required if known.
+                Content of the SIP identity header. Required if known. Will be removed in a future revision, 
+                being replaced by verstat Data Element in the Callback Data Component.
             sipIdentities:
               deprecated: true
               type: array
               description:
-                Contents of the SIP identity headers. Required if known.
+                Contents of the SIP identity headers. Required if known. Will be removed in a future revision, 
+                being replaced by sipIdentities Data Element in the Callback Data Component.
               items:
                 type: string
             locationReference:
